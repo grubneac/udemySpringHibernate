@@ -14,12 +14,18 @@
 	<bean id ="myFortuneService" 
 		class="com.luv2code.springdemo.HappyFortuneService">
 	</bean>
+	
+	<bean id ="myHomeWorkFortuneService" 
+		class="com.luv2code.springdemo.FortuneServiceMy">
+	</bean>
+	
     <!-- Define your beans here -->
  	<bean id="myCoach" 
  		class ="com.luv2code.springdemo.TrackCoach">
  				<!-- Set up constructor injection -->
 		<constructor-arg ref="myFortuneService"/>
  	</bean>   
+
 	<bean id= "myCricketCoach"
 		class="com.luv2code.springdemo.CricketCoach">
 		
@@ -29,6 +35,17 @@
 		<!-- inject literal values-->	
 		<property name="emailAddress" value="${foo.email}"/>	
 		<property name="team" value="${foo.team}"/>	
+	</bean>
+
+	<bean id= "myBoxCoach"
+		class="com.luv2code.springdemo.BoxCoach">
+		
+		<!-- set up setter injection -->
+		<property name="fortuneService" ref="myHomeWorkFortuneService"/>
+		
+		<!-- inject literal values-->	
+		<property name="emailAddress" value="${homeWork.email}"/>	
+		<property name="team" value="${homeWork.team}"/>	
 	</bean>
 	
 

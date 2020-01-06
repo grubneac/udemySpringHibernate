@@ -43,7 +43,7 @@ public class CricketCoach implements Coach {
 
 	@Override
 	public String getDailyFortune() {
-		return fortuneService.getFortuene();
+		return fortuneService.getFortune();
 	}
 
 }
