@@ -11,6 +11,12 @@ public class BoxCoach implements Coach {
 		System.out.println("BoxCoach : inside no-arg constructor");
 	}
 	
+	
+	public BoxCoach(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
+
+
 	@Override
 	public String getDailyWorkout() {
 		
@@ -47,5 +53,11 @@ public class BoxCoach implements Coach {
 		this.team = team;
 	}
 	
+	public void myHomeWorkInitMethod() {
+		System.out.println("Run myHomeWorkInitMethod");
+	}
+	public void myHomeWorkDestoyMethod() {
+		System.out.println("Run myHomeWorkDestoyMethod");
+	}
 
 }
