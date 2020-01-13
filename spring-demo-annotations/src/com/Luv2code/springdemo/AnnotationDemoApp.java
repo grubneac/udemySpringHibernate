@@ -19,6 +19,10 @@ public class AnnotationDemoApp {
 		// call a method to get the daily fortune
 		System.out.println(theCoach.getDailyFortune());
 		
+		//get method to get values from property file
+		System.out.println(theCoach.getEmail());
+		System.out.println(theCoach.getTeam());
+		
 		//close the context
 		context.close();
 
