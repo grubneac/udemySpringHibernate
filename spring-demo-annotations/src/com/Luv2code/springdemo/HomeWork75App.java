@@ -2,7 +2,7 @@ package com.Luv2code.springdemo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class HomeWork57App {
+public class HomeWork75App {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context =
@@ -10,6 +10,7 @@ public class HomeWork57App {
 		
 		Coach coach = context.getBean("boxCoach", Coach.class);
 		System.out.println(coach.getDailyWorkOut());
+		System.out.println(coach.getDailyFortune());
 		
 		context.close();
 	}

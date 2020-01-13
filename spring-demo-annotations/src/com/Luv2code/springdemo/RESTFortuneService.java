@@ -2,7 +2,7 @@ package com.Luv2code.springdemo;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("tttt")
 public class RESTFortuneService implements FortuneService {
 
 	@Override
