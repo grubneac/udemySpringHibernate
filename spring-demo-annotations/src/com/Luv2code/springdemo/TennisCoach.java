@@ -1,13 +1,16 @@
 package com.Luv2code.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Component
-@Scope("prototype")
 public class TennisCoach implements Coach {
 
 	@Value("${foo.email}")
@@ -55,5 +58,16 @@ public class TennisCoach implements Coach {
 		return team;
 	}
 	
+	//define my init method
+	@PostConstruct
+	public void MyPostConstructMethod(){
+		System.out.println(">>Run MyPostConstructMethod()");
+	}
+	
+	//define my destroy method
+	@PreDestroy
+	public void MyPreDestroyMethod(){
+		System.out.println(">>Run MyPreDestroyMethod()");
+	}
 
 }
