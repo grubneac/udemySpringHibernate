@@ -7,17 +7,26 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class FileFortuneService implements FortuneService {
 
-	private String []stringsArray; 
+	private List<String> strings = new ArrayList<String>();
 	
 	@Override
 	public String getFortune() {
+
+	   Random rnd =new Random();
+	    
+	   return strings.get(rnd.nextInt(strings.size()));
+		
+	}
+	@PostConstruct
+	public void MyPostConstructMethod() {
 	    File file = new File("src/homeWork75.txt");
-	    List<String> strings = new ArrayList<String>();
 	    Scanner sc = null;    
 
 	    try {
@@ -37,12 +46,7 @@ public class FileFortuneService implements FortuneService {
 	    }
 	    finally {
 	        sc.close();
-	    }
-
-	   Random rnd =new Random();
-	    
-	   return strings.get(rnd.nextInt(strings.size()));
-		
+	    }	
 	}
 
 }
