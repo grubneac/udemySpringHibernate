@@ -21,8 +21,8 @@ public class SwimJavaConfigDemoApp {
 		System.out.println(theCoach.getDailyFortune());
 		
 		//get method to get values from property file
-//		System.out.println(theCoach.getEmail());
-//		System.out.println(theCoach.getTeam());
+		System.out.println("email: "+theCoach.getEmail());
+		System.out.println("team: "+theCoach.getTeam());
 		
 		//close the context
 		context.close();

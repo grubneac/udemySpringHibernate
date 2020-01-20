@@ -1,8 +1,16 @@
 package com.Luv2code.springdemo;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class SwimCoach implements Coach {
 
 	private FortuneService fortuneService;
+	
+	@Value("${foo.email}")
+	private String email;
+
+	@Value("${foo.team}")
+	private String team;
 	
 	public SwimCoach(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
@@ -20,14 +28,12 @@ public class SwimCoach implements Coach {
 
 	@Override
 	public String getEmail() {
-		// TODO Auto-generated method stub
-		return null;
+		return email;
 	}
 
 	@Override
 	public String getTeam() {
-		// TODO Auto-generated method stub
-		return null;
+		return team;
 	}
 
 }
