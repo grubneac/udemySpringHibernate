@@ -10,6 +10,8 @@
 	Student.firstName ${student.firstName}
 	<br/>
 	Student.lastName ${student.lastName}
+	<br/>
+	Student.country ${student.country}
 	
 <br>
 <a href="showMainForm">Main menu</a>		
