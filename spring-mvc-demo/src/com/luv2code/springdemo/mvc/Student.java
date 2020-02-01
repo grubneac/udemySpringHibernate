@@ -7,14 +7,6 @@ public class Student {
 	private String lastName;
 	private String country;
 	
-	private static LinkedHashMap<String, String> countryOptions= new LinkedHashMap<>();
-	static {
-		countryOptions.put("BR", "Brazil");
-		countryOptions.put("FR", "France");
-		countryOptions.put("DE", "Germany");
-		countryOptions.put("IN", "India");
-		countryOptions.put("US", "United States of America");
-	}
 	
 	public Student() {
 	}
@@ -44,10 +36,6 @@ public class Student {
 		this.country = country;
 	}
 	
-	public LinkedHashMap<String, String> getCountryOptions() {
-		return countryOptions;
-	}
-
 	@Override
 	public String toString() {
 		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", country=" + country + "]";
