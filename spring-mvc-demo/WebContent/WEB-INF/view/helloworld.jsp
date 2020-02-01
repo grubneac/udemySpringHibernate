@@ -12,5 +12,8 @@
 Student name: ${param.studentName}
 <br>
 The message: ${message}	
+
+<br>
+<a href="showMainForm">Main menu</a>	
 </body>
 </html>
