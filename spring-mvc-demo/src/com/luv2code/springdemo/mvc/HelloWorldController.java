@@ -53,4 +53,8 @@ public class HelloWorldController {
 		
 		return "helloworld";
 	}
+	@RequestMapping("/showMainForm")
+	public String displayMainMenu() {
+		return "main-menu";
+	}	
 }
