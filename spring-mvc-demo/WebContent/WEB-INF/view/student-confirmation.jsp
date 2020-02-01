@@ -7,11 +7,12 @@
 <title>Student Confirmation Form</title>
 </head>
 <body>
-	Student.firstName ${student.firstName}
+	Student: ${student.firstName} ${student.lastName}
 	<br/>
-	Student.lastName ${student.lastName}
 	<br/>
-	Student.country ${student.country}
+	Student.country: ${student.country}
+	<br/>
+	Student.favoritLanguage: ${student.favoriteLanguage}
 	
 <br>
 <a href="showMainForm">Main menu</a>		
