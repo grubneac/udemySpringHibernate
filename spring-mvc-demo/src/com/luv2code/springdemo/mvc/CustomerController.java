@@ -25,6 +25,8 @@ public class CustomerController {
 	public String processForm(@Valid @ModelAttribute("customer") Customer theCustomer,
 			BindingResult theBindigResult){
 		
+		System.out.println("BindingResult"+theBindigResult+"\n\n\n");
+		
 		if(theBindigResult.hasErrors())	
 			return "customer-form";
 		else 
