@@ -15,6 +15,10 @@
 	
 	Free passes : ${customer.freePasses}
 
+<br>	
+
+	Post code : ${customer.postalCode}
+
 <br>
 
 <a href="showMainForm">Main menu</a>		
