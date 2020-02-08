@@ -21,6 +21,10 @@
 
 <br>
 
+	Course code: ${customer.courseCode}
+
+<br>
+
 <a href="showMainForm">Main menu</a>		
 </body>
 </html>
