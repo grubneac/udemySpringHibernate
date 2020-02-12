@@ -28,6 +28,8 @@ public class UpdateStudentDemo {
 			
 			readStudent.setFirstName("Scooby");
 			
+			session.createQuery("update Student set email='new@email.com' where firstName='Daffy'").executeUpdate();
+			
 			//commit the transaction
 			session.getTransaction().commit();
 			
