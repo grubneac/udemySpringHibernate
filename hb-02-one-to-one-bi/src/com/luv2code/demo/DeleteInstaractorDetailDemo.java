@@ -24,9 +24,12 @@ public class DeleteInstaractorDetailDemo {
 			session.beginTransaction();
 			
 			InstructorDetail instructorDetail =
-					session.get(InstructorDetail.class, 3);
+					session.get(InstructorDetail.class, 4);
 			System.out.println("instructorDetail "+instructorDetail);
 			System.out.println("instractor "+instructorDetail.getInstructor());
+			
+			//remove the associated object reference
+			instructorDetail.getInstructor().setInstructorDetail(null);
 			
 			session.delete(instructorDetail);
 			//commit the transaction
