@@ -24,14 +24,16 @@ public class GetInstaractorDetailDemo {
 			session.beginTransaction();
 			
 			InstructorDetail instructorDetail =
-					session.get(InstructorDetail.class, 3);
+					session.get(InstructorDetail.class, 3333);
 			System.out.println("instructorDetail "+instructorDetail);
 			System.out.println("instractor "+instructorDetail.getInstructor());
 			
 			//commit the transaction
 			session.getTransaction().commit();
-			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}finally{
+			session.close();
 			factory.close();
 		}		
 
