@@ -1,5 +1,7 @@
 package com.luv2code.demo;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -31,10 +33,12 @@ public class EagerLazyDemo {
 						
 			System.out.println("instructor "+instructor);
 			
+			System.out.println("Courses: "+instructor.getCourses());
 			
 			//commit the transaction
 			session.getTransaction().commit();
 			session.close();
+			System.out.println("The session is now close\n");
 			
 			System.out.println("Courses: "+instructor.getCourses());
 			
