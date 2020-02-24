@@ -10,7 +10,7 @@ import com.luv2code.hibernate.demo.entity.InstructorDetail;
 import com.luv2code.hibernate.demo.entity.Review;
 import com.luv2code.hibernate.demo.entity.Student;
 
-public class CreateCourseForMaryDemo {
+public class AddCourseForMaryDemo {
 
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration().
