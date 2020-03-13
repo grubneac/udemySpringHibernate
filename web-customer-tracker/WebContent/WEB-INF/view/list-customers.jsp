@@ -34,8 +34,13 @@
 					<th>Action</th>
 				</tr>
 				<c:forEach var ="tempCustomer" items="${customers}">
+				
 				<!-- custruct an "update" link with customer id -->
 				<c:url var="updateLink" value="/customer/showFormForUpdate" >
+					<c:param name="customerId" value="${tempCustomer.id}"></c:param>
+				</c:url>
+				<!-- custruct an "delete" link with customer id -->
+				<c:url var="deleteLink" value="/customer/showFormForDelete" >
 					<c:param name="customerId" value="${tempCustomer.id}"></c:param>
 				</c:url>
 				
@@ -43,7 +48,9 @@
 						<td>${tempCustomer.firstName}</td>
 						<td>${tempCustomer.lastName}</td>
 						<td>${tempCustomer.email}</td>
-						<td><a href="${updateLink}">Update</a> </td>
+						<td><a href="${updateLink}">Update</a> 
+						|
+						<a href="${deleteLink}">Delete</a> </td>
 					</tr>
 				</c:forEach>
 			</table>
