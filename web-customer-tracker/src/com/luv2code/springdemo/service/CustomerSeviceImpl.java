@@ -44,4 +44,10 @@ public class CustomerSeviceImpl implements CustomerService {
 		
 	}
 
+	@Override
+	@Transactional
+	public List<Customer> searchCustomer(String theSearchName) {
+		return customerDAO.searchCustomer(theSearchName);
+	}
+
 }
