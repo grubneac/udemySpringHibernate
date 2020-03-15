@@ -2,6 +2,8 @@ package com.luv2code.springdemo.dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,24 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(customer);
 		
+	}
+
+	@Override
+	public List<Customer> searchCustomer(String theSearchName) {
+		Session session = sessionFactory.getCurrentSession();
+		Query theQuery = null;
+		theSearchName = theSearchName.toLowerCase();
+		System.out.println("theSearchName="+theSearchName);
+		if (theSearchName != null && theSearchName.trim().length()>0) {
+			theQuery= session.createQuery("from Customer where lower(firstName) like :theSearchName"
+														+ " or lower(lastName) like :theSearchName",Customer.class);
+			theQuery.setParameter("theSearchName","%"+ theSearchName + "%");
+		}else {
+			theQuery =session.createQuery("from Customer", Customer.class);
+		}
+		
+		List<Customer> theCustomers = theQuery.getResultList();
+		return theCustomers;
 	}
 
 }
