@@ -1,0 +1,56 @@
+package com.Luv2code.aopdemo.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.Luv2code.aopdemo.Account;
+
+@Component
+public class AccountDAO {
+	private String name;
+	private String serviceCode;
+	
+	public List<Account> fiendAccounts(boolean tripWire){
+		if(tripWire == true) {
+			throw new RuntimeException("No soup for you!!!");
+		}
+		
+		List<Account> myAccounts = new ArrayList<>();
+		myAccounts.add(new Account("Vasea","level1"));
+		myAccounts.add(new Account("Petea","level2"));
+		myAccounts.add(new Account("Tanea","level3"));
+		System.out.println("\n\nAccountDAO.fiendAccounts()");
+		System.out.println("-----------------------------------------");
+		System.out.println(myAccounts);
+		System.out.println("-----------------------------------------\n");
+		
+		return myAccounts;
+	}
+	
+	public void addAccount(Account theAccount, Boolean flag) {
+		System.out.println(getClass() + " DOING MY DB WORK: ADDING AN ACCOUNT");
+	}
+
+	public String getName() {
+		System.out.println(getClass() + " in getName()");
+		return name;
+	}
+
+	public void setName(String name) {
+		System.out.println(getClass() + " in setName()");
+		this.name = name;
+	}
+
+	public String getServiceCode() {
+		System.out.println(getClass() + " in getServiceCode()");
+		return serviceCode;
+	}
+
+	public void setServiceCode(String serviceCode) {
+		System.out.println(getClass() + " in setServiceCode()");
+		this.serviceCode = serviceCode;
+	}
+	
+}
