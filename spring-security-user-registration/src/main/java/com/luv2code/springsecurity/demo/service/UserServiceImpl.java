@@ -1,10 +1,11 @@
 package com.luv2code.springsecurity.demo.service;
 
-import com.luv2code.springsecurity.demo.dao.RoleDao;
-import com.luv2code.springsecurity.demo.dao.UserDao;
-import com.luv2code.springsecurity.demo.entity.Role;
-import com.luv2code.springsecurity.demo.entity.User;
-import com.luv2code.springsecurity.demo.user.CrmUser;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,9 +15,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
+import com.luv2code.springsecurity.demo.dao.RoleDao;
+import com.luv2code.springsecurity.demo.dao.UserDao;
+import com.luv2code.springsecurity.demo.entity.Role;
+import com.luv2code.springsecurity.demo.entity.User;
+import com.luv2code.springsecurity.demo.user.CrmUser;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -50,7 +53,16 @@ public class UserServiceImpl implements UserService {
 		user.setEmail(crmUser.getEmail());
 
 		// give user default role of "employee"
-		user.setRoles(Arrays.asList(roleDao.findRoleByName("ROLE_EMPLOYEE")));
+		List<Role> roleList = new ArrayList<>();
+		roleList.add(roleDao.findRoleByName("ROLE_EMPLOYEE"));
+		
+		//add role from form
+		String roleFromForm= crmUser.getFormRole();
+		if (!roleFromForm.equals("ROLE_EMPLOYEE"))
+			roleList.add(roleDao.findRoleByName(roleFromForm));
+		
+		user.setRoles(roleList);
+		
 
 		 // save user in the database
 		userDao.save(user);
