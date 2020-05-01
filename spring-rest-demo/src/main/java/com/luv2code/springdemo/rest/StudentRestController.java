@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.annotation.HandlesTypes;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +38,22 @@ public class StudentRestController {
 
 	@GetMapping("/list/{studentId}")
 	public Student getStudentsById(@PathVariable int studentId){
+		
+		if((studentId >= theStudents.size()) || (studentId<0))
+			throw new StudentNotFoundException("Student id not found - "+studentId);
+		
 		return theStudents.get(studentId);
+	}
+	
+	@ExceptionHandler
+	public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException exc){
+		
+		//create a StudentErrorResponse
+		StudentErrorResponse error = new StudentErrorResponse(HttpStatus.NOT_FOUND.value(), 
+				exc.getMessage(),
+				System.currentTimeMillis());
+		
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
 	}
 
 }
