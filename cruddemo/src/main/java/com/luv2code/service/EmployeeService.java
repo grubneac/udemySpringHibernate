@@ -1,10 +1,10 @@
-package com.luv2code.dao;
+package com.luv2code.service;
 
 import java.util.List;
 
 import com.luv2code.entity.Employee;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
 	public List<Employee> findAll();
 	public Employee findById(int theId);
