@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-	<title>Employees list</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<title>Employees list</title>
 </head>
 <body>
-	<h3>Employees list</h3>
-	<hr>
-	
-	<table border="1">
-		<thead>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Email</th>
-		</thead>
-		<tbody>
-			<tr th:each="theEmployee : ${employees}">
-				<td th:text="${theEmployee.firstName}"/>
-				<td th:text="${theEmployee.lastName}"/>
-				<td th:text="${theEmployee.email}"/>
-			</tr>
-		</tbody>
-	</table>
-	
+	<div class="container" >
+		<h3>Employees list</h3>
+		<hr>
+		
+		<table class="table table-bordered-table-striped">
+			<thead class="thead-dark">
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</thead>
+			<tbody>
+				<tr th:each="theEmployee : ${employees}">
+					<td th:text="${theEmployee.firstName}"/>
+					<td th:text="${theEmployee.lastName}"/>
+					<td th:text="${theEmployee.email}"/>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
 </body>
 </html>
